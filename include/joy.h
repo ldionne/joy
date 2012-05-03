@@ -8,5 +8,6 @@
 #define JOY_H
 
 #include "joy/type.h"
+#include "joy/object.h"
 
 #endif /* !JOY_H */
