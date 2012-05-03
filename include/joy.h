@@ -10,5 +10,6 @@
 #include "joy/type.h"
 #include "joy/object.h"
 #include "joy/named_object.h"
+#include "joy/namespace.h"
 
 #endif /* !JOY_H */
