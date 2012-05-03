@@ -9,5 +9,6 @@
 
 #include "joy/type.h"
 #include "joy/object.h"
+#include "joy/named_object.h"
 
 #endif /* !JOY_H */
