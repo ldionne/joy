@@ -9,8 +9,9 @@
 
 #include <chaos/preprocessor/tuple/elem.h>
 #include <chaos/preprocessor/tuple/replace.h>
-#include <chaos/preprocessor/comparison/equal.h>
 #include <chaos/preprocessor/logical/nor.h>
+#include <chaos/preprocessor/logical/not.h>
+#include <chaos/preprocessor/detection/is_ternary.h>
 
 
 /*!
@@ -20,7 +21,7 @@
  * @param left The left child.
  * @param right The right child.
  */
-#define JOY_BNODE(left, data, right) (left, right, 0, data)
+#define JOY_BNODE(left, data, right) (left, data, right)
 
 /*!
  * Create a new binary tree leaf, which is a node with no children.
@@ -33,22 +34,22 @@
  *
  * This serves the same purpose as a NULL pointer.
  */
-#define JOY_BNODE_NULL() (~, ~, 1, ~)
+#define JOY_BNODE_NULL() ~
 
 /*!
  * Retrieve the left child of a node.
  */
-#define JOY_BNODE_LCHILD(node) CHAOS_PP_TUPLE_ELEM(4, 0, node)
+#define JOY_BNODE_LCHILD(node) CHAOS_PP_TUPLE_ELEM(3, 0, node)
 
 /*!
  * Retrieve the right child of a node.
  */
-#define JOY_BNODE_RCHILD(node) CHAOS_PP_TUPLE_ELEM(4, 1, node)
+#define JOY_BNODE_RCHILD(node) CHAOS_PP_TUPLE_ELEM(3, 2, node)
 
 /*!
  * Retrieve the data element held by a node.
  */
-#define JOY_BNODE_DATA(node) CHAOS_PP_TUPLE_ELEM(4, 3, node)
+#define JOY_BNODE_DATA(node) CHAOS_PP_TUPLE_ELEM(3, 1, node)
 
 /*!
  * Return the node with its left child set as specified.
@@ -60,13 +61,13 @@
  * Return the node with its right child set as specified.
  */
 #define JOY_BNODE_SET_RCHILD(node, right) \
-    CHAOS_PP_TUPLE_REPLACE(1, node, right)
+    CHAOS_PP_TUPLE_REPLACE(2, node, right)
 
 /*!
  * Return the node with its data element set as specified.
  */
 #define JOY_BNODE_SET_DATA(node, data) \
-    CHAOS_PP_TUPLE_REPLACE(3, node, data)
+    CHAOS_PP_TUPLE_REPLACE(1, node, data)
 
 /*!
  * Return the node with both its left and right children set as specified.
@@ -77,13 +78,8 @@
 /*!
  * Return whether a node is actually a NULL node.
  */
-#define JOY_BNODE_IS_NULL(node)                                                \
-    CHAOS_PP_EQUAL(                                                            \
-        JOY_I_BNODE_NULLBIT(node),                                             \
-        JOY_I_BNODE_NULLBIT(JOY_BNODE_NULL())                                  \
-    )                                                                          \
-/**/
-#define JOY_I_BNODE_NULLBIT(node) CHAOS_PP_TUPLE_ELEM(4, 2, node)
+#define JOY_BNODE_IS_NULL(node) \
+    CHAOS_PP_NOT(CHAOS_PP_IS_TERNARY(node))
 
 /*!
  * Return whether a node has a left child.
