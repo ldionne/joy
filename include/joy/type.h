@@ -48,6 +48,11 @@
 #define JOY_TYPE_NIL_ID() JOY_TYPE_NIL
 
 /*!
+ * Return whether a type is the empty type.
+ */
+#define JOY_I_TYPE_IS_NIL(type) JOY_MAP_EMPTY(JOY_TYPE_ATTRSOF(type))
+
+/*!
  * This macro is used when a macro should be implemented in a derived type.
  *
  * It will trigger a preprocessor error whenever called with more than 0
@@ -80,7 +85,27 @@
 #define JOY_TYPE_GETATTR(type, attr) \
     JOY_TYPE_GETATTR_S(CHAOS_PP_STATE(), type, attr)
 
-#define JOY_TYPE_GETATTR_S(state, type, attr) \
-    JOY_MAP_FIND_E_S(state, JOY_TYPE_ATTRSOF(type), attr) /*ID*/()
+#define JOY_TYPE_GETATTR_S(state, type, attr)                                  \
+    CHAOS_PP_EXPR_S(state) (                                                   \
+        JOY_I_TYPE_GETATTR(                                                    \
+            CHAOS_PP_OBSTRUCT(), CHAOS_PP_NEXT(state), type, attr              \
+        )                                                                      \
+    )                                                                          \
+/**/
+
+#define JOY_I_TYPE_GETATTR_ID() JOY_I_TYPE_GETATTR
+#define JOY_I_TYPE_GETATTR(_, state, type, attr) CHAOS_PP_BRANCH               \
+    (0xIF) (JOY_I_TYPE_IS_NIL(type)) (                                         \
+        JOY_I_TYPE_GETATTR_EXCEPTION_ATTRIBUTE_NOT_FOUND(!)                    \
+    ) (0xELIF) (JOY_MAP_CONTAINS_S(state, JOY_TYPE_ATTRSOF(type), attr)) (     \
+        JOY_MAP_FIND_E_S(state, JOY_TYPE_ATTRSOF(type), attr)                  \
+    ) (0xELSE) _(                                                              \
+        CHAOS_PP_EXPR_S _(state) (                                             \
+            JOY_I_TYPE_GETATTR_ID _() (CHAOS_PP_OBSTRUCT _(),                  \
+                CHAOS_PP_NEXT(state), JOY_TYPE_BASEOF _(type), attr            \
+            )                                                                  \
+        )                                                                      \
+    ) (0xENDIF) /*ID*/()                                                       \
+/**/
 
 #endif /* !JOY_TYPE_H */
