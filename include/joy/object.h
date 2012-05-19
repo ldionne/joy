@@ -7,9 +7,8 @@
 #ifndef JOY_OBJECT_H
 #define JOY_OBJECT_H
 
-#include "internal/map.h"
-#include "internal/strcmp.h"
 #include "type.h"
+#include "base.h"
 #include <chaos/preprocessor/recursion/expr.h>
 
 
@@ -44,15 +43,12 @@
 /*!
  * Create an object.
  *
- * @param attrs A sequence of name:value tuples representing the attributes of
- *              the object.
+ * @param attrs A sequence of name:value tuples representing
+ *              the attributes of the object.
  */
 #define JOY_I_OBJECT_NEW(state, type, attrs) \
-    JOY_SEQ_TO_MAP_S(state, JOY_I_OBJECT_NEW_LESS, attrs ((t y p e, type)))
+    JOY_BASE_S(state, attrs ((t y p e, type)))
 #define JOY_I_OBJECT_NEW_ID() JOY_I_OBJECT_NEW
-
-#define JOY_I_OBJECT_NEW_LESS(state, a, b) \
-    JOY_MAP_KEY_COMP_ADJUST(JOY_STRING_LESS_S, state, a, b)
 
 /*!
  * Return the macro as implemented in an object's base type.
@@ -77,7 +73,7 @@
     JOY_SEND_S(state, self, g e t  a t t r) (state, self, attr)
 
 #define JOY_I_OBJECT_GETATTR(state, self, attr) \
-    JOY_MAP_FIND_E_S(state, self, attr)
+    JOY_BASE_GETATTR_S(state, self, attr)
 #define JOY_I_OBJECT_GETATTR_ID() JOY_I_OBJECT_GETATTR
 
 /*!
@@ -90,7 +86,7 @@
     JOY_SEND_S(state, self, s e t  a t t r) (state, self, attr, value)
 
 #define JOY_I_OBJECT_SETATTR(state, self, attr, value) \
-    JOY_MAP_ADD_S(state, self, attr, value)
+    JOY_BASE_SETATTR_S(state, self, attr, value)
 #define JOY_I_OBJECT_SETATTR_ID() JOY_I_OBJECT_SETATTR
 
 /*!
@@ -104,11 +100,8 @@
 #define JOY_SETATTRS_S(state, self, attrs) \
     JOY_SEND_S(state, self, s e t  a t t r s) (state, self, attrs)
 
-#define JOY_I_OBJECT_SETATTRS(state, self, attrs)                              \
-    JOY_MAP_UPDATE_S(state, self,                                              \
-        JOY_SEQ_TO_MAP_S(state, JOY_I_OBJECT_NEW_LESS, attrs)                  \
-    )                                                                          \
-/**/
+#define JOY_I_OBJECT_SETATTRS(state, self, attrs) \
+    JOY_BASE_UPDATE_S(state, self, attrs)
 #define JOY_I_OBJECT_SETATTRS_ID() JOY_I_OBJECT_SETATTRS
 
 /*!
@@ -121,7 +114,7 @@
     JOY_SEND_S(state, self, d e l  a t t r) (state, self, attr)
 
 #define JOY_I_OBJECT_DELATTR(state, self, attr) \
-    JOY_MAP_REMOVE_S(state, self, attr)
+    JOY_BASE_DELATTR_S(state, self, attr)
 #define JOY_I_OBJECT_DELATTR_ID() JOY_I_OBJECT_DELATTR
 
 /*!
@@ -134,7 +127,7 @@
     JOY_SEND_S(state, self, h a s  a t t r) (state, self, attr)
 
 #define JOY_I_OBJECT_HASATTR(state, self, attr) \
-    JOY_MAP_CONTAINS_S(state, self, attr)
+    JOY_BASE_HASATTR_S(state, self, attr)
 #define JOY_I_OBJECT_HASATTR_ID() JOY_I_OBJECT_HASATTR
 
 /*!
@@ -158,7 +151,7 @@
 
 #define JOY_I_OBJECT_SEND(state, self, message)                                \
     JOY_TYPE_GETATTR_S(state,                                                  \
-        JOY_MAP_FIND_E_S(state, self, t y p e), message                        \
+        JOY_BASE_GETATTR_S(state, self, t y p e), message                      \
     )                                                                          \
 /**/
 #define JOY_I_OBJECT_SEND_ID() JOY_I_OBJECT_SEND

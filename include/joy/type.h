@@ -7,8 +7,7 @@
 #ifndef JOY_TYPE_H
 #define JOY_TYPE_H
 
-#include "internal/map.h"
-#include "internal/strcmp.h"
+#include "base.h"
 #include <chaos/preprocessor/tuple/elem.h>
 #include <chaos/preprocessor/recursion/expr.h>
 
@@ -31,20 +30,17 @@
 #define JOY_TYPE_S_ID() JOY_TYPE_S
 
 #define JOY_I_TYPE_MAKEATTRS(state, base, new_attrs)                           \
-    JOY_MAP_UPDATE_S(state,                                                    \
+    JOY_BASE_UPDATE_S(state,                                                   \
         JOY_TYPE_ATTRSOF(base),                                                \
-        JOY_SEQ_TO_MAP_S(state, JOY_I_TYPE_LESS, new_attrs)                    \
+        new_attrs                                                              \
     )                                                                          \
 /**/
-
-#define JOY_I_TYPE_LESS(state, a, b) \
-    JOY_MAP_KEY_COMP_ADJUST(JOY_STRING_LESS_S, state, a, b)
 
 /*!
  * The empty type. This is only useful as a base for the first type of the
  * Joy hierarchy.
  */
-#define JOY_TYPE_NIL ( , , JOY_MAP(JOY_I_TYPE_LESS))
+#define JOY_TYPE_NIL ( , , JOY_BASE(/*nothing*/))
 #define JOY_TYPE_NIL_ID() JOY_TYPE_NIL
 
 /*!
@@ -75,12 +71,12 @@
  * Retrieve the value of an attribute of a type.
  *
  * @internal Call the result of the search because we store only IDs. Calling
- *              the ID will give the actual value of the attribute.
+ *           the ID will give the actual value of the attribute.
  */
 #define JOY_TYPE_GETATTR(type, attr) \
     JOY_TYPE_GETATTR_S(CHAOS_PP_STATE(), type, attr)
 
 #define JOY_TYPE_GETATTR_S(state, type, attr) \
-    JOY_MAP_FIND_E_S(state, JOY_TYPE_ATTRSOF(type), attr) /*ID*/()
+    JOY_BASE_GETATTR_S(state, JOY_TYPE_ATTRSOF(type), attr) /*ID*/()
 
 #endif /* !JOY_TYPE_H */
