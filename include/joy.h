@@ -1,5 +1,5 @@
 /*!
- * Master header for the joy library.
+ * Master header for the Joy library.
  *
  * @author Louis Dionne
  */
@@ -8,5 +8,6 @@
 #define JOY_H
 
 #include "joy/cb.h"
+#include "joy/pb.h"
 
 #endif /* !JOY_H */
