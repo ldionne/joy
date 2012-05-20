@@ -9,5 +9,6 @@
 
 #include "joy/cb.h"
 #include "joy/pb.h"
+#include "joy/mangle.h"
 
 #endif /* !JOY_H */
