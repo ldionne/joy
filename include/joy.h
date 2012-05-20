@@ -7,8 +7,6 @@
 #ifndef JOY_H
 #define JOY_H
 
-#include "joy/type.h"
-#include "joy/object.h"
-#include "joy/Ctype.h"
+#include "joy/cb.h"
 
 #endif /* !JOY_H */

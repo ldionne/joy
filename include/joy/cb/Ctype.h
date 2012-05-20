@@ -4,11 +4,10 @@
  * @author Louis Dionne
  */
 
-#ifndef JOY_CTYPE_H
-#define JOY_CTYPE_H
+#ifndef JOY_CB_CTYPE_H
+#define JOY_CB_CTYPE_H
 
 #include "Ctype/base.h"
 #include "Ctype/primitive.h"
-#include "Ctype/class.h"
 
-#endif /* !JOY_CTYPE_H */
+#endif /* !JOY_CB_CTYPE_H */
