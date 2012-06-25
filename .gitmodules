@@ -1,0 +1,3 @@
+[submodule "tools/macroize"]
+	path = tools/macroize
+	url = git://github.com/ldionne/macroize.git
