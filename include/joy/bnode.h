@@ -4,8 +4,8 @@
  * @author Louis Dionne
  */
 
-#ifndef JOY_INTERNAL_BNODE_H
-#define JOY_INTERNAL_BNODE_H
+#ifndef JOY_BNODE_H
+#define JOY_BNODE_H
 
 #include <chaos/preprocessor/tuple/elem.h>
 #include <chaos/preprocessor/tuple/replace.h>
@@ -142,4 +142,4 @@
     )                                                                          \
 /**/
 
-#endif /* !JOY_INTERNAL_BNODE_H */
+#endif /* !JOY_BNODE_H */

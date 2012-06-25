@@ -8,6 +8,7 @@
 #define JOY_OBJECT_H
 
 #include <joy/map.h>
+#include <joy/seq.h>
 #include <joy/string/lt.h>
 
 #include <chaos/preprocessor/recursion/expr.h>
