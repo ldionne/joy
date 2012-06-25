@@ -4,8 +4,8 @@
  * @author Louis Dionne
  */
 
-#ifndef JOY_INTERNAL_EXECUTE_H
-#define JOY_INTERNAL_EXECUTE_H
+#ifndef JOY_EXECUTE_H
+#define JOY_EXECUTE_H
 
 #include <joy/internal/pair.h>
 
@@ -77,4 +77,4 @@
 
 #define JOY_I_EXECUTE_INSTRUCTION(x) x
 
-#endif /* !JOY_INTERNAL_EXECUTE_H */
+#endif /* !JOY_EXECUTE_H */

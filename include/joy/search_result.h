@@ -4,10 +4,11 @@
  * @author Louis Dionne
  */
 
-#ifndef JOY_INTERNAL_SEARCH_RESULT_H
-#define JOY_INTERNAL_SEARCH_RESULT_H
+#ifndef JOY_SEARCH_RESULT_H
+#define JOY_SEARCH_RESULT_H
 
-#include "pair.h"
+#include <joy/pair.h>
+
 #include <chaos/preprocessor/control/if.h>
 
 
@@ -53,4 +54,4 @@
 /**/
 #define JOY_I_SEARCH_VALUE_VALUE_NOT_FOUND_EXCEPTION()
 
-#endif /* !JOY_INTERNAL_SEARCH_RESULT_H */
+#endif /* !JOY_SEARCH_RESULT_H */

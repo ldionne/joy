@@ -4,12 +4,13 @@
  * @author Louis Dionne
  */
 
-#ifndef JOY_INTERNAL_ARGLIST_H
-#define JOY_INTERNAL_ARGLIST_H
+#ifndef JOY_ARGLIST_H
+#define JOY_ARGLIST_H
 
-#include "map.h"
-#include "seqzip.h"
-#include "seqrange.h"
+#include <joy/map.h>
+#include <joy/seq/pyzip.h>
+#include <joy/seq/range.h>
+
 #include <chaos/preprocessor/comparison/less.h>
 #include <chaos/preprocessor/comparison/equal.h>
 #include <chaos/preprocessor/arithmetic/dec.h>
@@ -79,7 +80,7 @@
 
 #define JOY_I_ARGLIST_BIND_RANGE_PREPARE(state, from, args)                    \
     JOY_SEQ_TO_MAP_S(state, JOY_I_ARGLIST_LESS,                                \
-        JOY_SEQZIP_S(state,                                                    \
+        JOY_SEQ_PYZIP_S(state,                                                 \
             JOY_SEQRANGE_S(state,                                              \
                 from, CHAOS_PP_ADD(from, CHAOS_PP_SEQ_SIZE(args))              \
             ), args                                                            \
@@ -198,4 +199,4 @@
 #define JOY_ARGLIST_UNBIND_S(state, arglist, pos) \
     JOY_MAP_DISCARD_S(state, arglist, pos)
 
-#endif /* !JOY_INTERNAL_ARGLIST_H */
+#endif /* !JOY_ARGLIST_H */

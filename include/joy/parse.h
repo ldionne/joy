@@ -4,8 +4,8 @@
  * @author Louis Dionne
  */
 
-#ifndef JOY_INTERNAL_PARSE_H
-#define JOY_INTERNAL_PARSE_H
+#ifndef JOY_PARSE_H
+#define JOY_PARSE_H
 
 #include <joy/internal/execute.h>
 
@@ -161,4 +161,4 @@
     )                                                                          \
 /**/
 
-#endif /* !JOY_INTERNAL_PARSE_H */
+#endif /* !JOY_PARSE_H */

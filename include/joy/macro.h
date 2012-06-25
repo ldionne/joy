@@ -4,11 +4,12 @@
  * @author Louis Dionne
  */
 
-#ifndef JOY_INTERNAL_MACRO_H
-#define JOY_INTERNAL_MACRO_H
+#ifndef JOY_MACRO_H
+#define JOY_MACRO_H
 
-#include "arglist.h"
-#include "pair.h"
+#include <joy/arglist.h>
+#include <joy/pair.h>
+
 #include <chaos/preprocessor/recursion/expr.h>
 #include <chaos/preprocessor/seq/elem.h>
 #include <chaos/preprocessor/seq/replace.h>
@@ -135,4 +136,4 @@
 #define JOY_MACRO_ALLBOUND_S(state, macro) \
     JOY_ARGLIST_ISCOMPLETE_S(state, JOY_I_MACRO_ARGLIST(macro))
 
-#endif /* !JOY_INTERNAL_MACRO_H */
+#endif /* !JOY_MACRO_H */
