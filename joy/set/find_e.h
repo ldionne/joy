@@ -7,7 +7,7 @@
 #ifndef JOY_SET_FIND_E_H
 #define JOY_SET_FIND_E_H
 
-#include <joy/search_value.h>
+#include <joy/search_result.h>
 
 #include <chaos/preprocessor/recursion/expr.h>
 

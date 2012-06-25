@@ -7,7 +7,7 @@
 #ifndef JOY_PARSE_H
 #define JOY_PARSE_H
 
-#include <joy/internal/execute.h>
+#include <joy/execute.h>
 
 #include <chaos/preprocessor/recursion/expr.h>
 #include <chaos/preprocessor/control/branch.h>

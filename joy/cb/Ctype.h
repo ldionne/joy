@@ -7,7 +7,7 @@
 #ifndef JOY_CB_CTYPE_H
 #define JOY_CB_CTYPE_H
 
-#include "Ctype/base.h"
-#include "Ctype/primitive.h"
+#include <joy/cb/Ctype/base.h>
+#include <joy/cb/Ctype/primitive.h>
 
 #endif /* !JOY_CB_CTYPE_H */

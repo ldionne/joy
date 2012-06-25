@@ -8,8 +8,9 @@
 #ifndef JOY_PB_OBJECT_H
 #define JOY_PB_OBJECT_H
 
-#include "../base.h"
-#include "../internal/macro.h"
+#include <joy/base.h>
+#include <joy/macro.h>
+
 #include <chaos/preprocessor/recursion/expr.h>
 
 

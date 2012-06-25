@@ -7,7 +7,7 @@
 #ifndef JOY_EXECUTE_H
 #define JOY_EXECUTE_H
 
-#include <joy/internal/pair.h>
+#include <joy/pair.h>
 
 #include <chaos/preprocessor/recursion/expr.h>
 #include <chaos/preprocessor/seq/transform.h>

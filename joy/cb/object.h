@@ -7,8 +7,9 @@
 #ifndef JOY_CB_OBJECT_H
 #define JOY_CB_OBJECT_H
 
-#include "type.h"
-#include "../base.h"
+#include <joy/cb/type.h>
+#include <joy/base.h>
+
 #include <chaos/preprocessor/recursion/expr.h>
 
 

@@ -7,7 +7,8 @@
 #ifndef JOY_CB_TYPE_H
 #define JOY_CB_TYPE_H
 
-#include "../base.h"
+#include <joy/base.h>
+
 #include <chaos/preprocessor/tuple/elem.h>
 #include <chaos/preprocessor/recursion/expr.h>
 

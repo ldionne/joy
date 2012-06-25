@@ -9,6 +9,6 @@
 #ifndef JOY_PB_H
 #define JOY_PB_H
 
-#include "pb/object.h"
+#include <joy/pb/object.h>
 
 #endif /* !JOY_PB_H */

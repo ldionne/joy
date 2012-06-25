@@ -7,7 +7,7 @@
 #ifndef JOY_SET_FIND_H
 #define JOY_SET_FIND_H
 
-#include <joy/search_value.h>
+#include <joy/search_result.h>
 #include <joy/set/core.h>
 #include <joy/set/value_cmp.h>
 #include <joy/tree/search.h>

@@ -9,8 +9,8 @@
 #ifndef JOY_CB_H
 #define JOY_CB_H
 
-#include "cb/object.h"
-#include "cb/type.h"
-#include "cb/Ctype.h"
+#include <joy/cb/object.h>
+#include <joy/cb/type.h>
+#include <joy/cb/Ctype.h>
 
 #endif /* !JOY_CB_H */

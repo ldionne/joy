@@ -7,8 +7,9 @@
 #ifndef JOY_BASE_H
 #define JOY_BASE_H
 
-#include "internal/map.h"
-#include "internal/strcmp.h"
+#include <joy/map.h>
+#include <joy/string/lt.h>
+
 #include <chaos/preprocessor/recursion/expr.h>
 
 
@@ -25,7 +26,7 @@
     JOY_SEQ_TO_MAP_S(state, JOY_I_BASE_LESS, attrs)
 
 #define JOY_I_BASE_LESS(state, lhs, rhs) \
-    JOY_MAP_KEY_COMP_ADJUST(JOY_STRING_LESS_S, state, lhs, rhs)
+    JOY_MAP_KEY_CMP_ADJUST(JOY_STRING_LT_S, state, lhs, rhs)
 
 /*!
  * Return the value of an attribute of an object.
