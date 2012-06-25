@@ -10,6 +10,7 @@
 #include <joy/arglist.h>
 #include <joy/array.h>
 #include <joy/bnode.h>
+#include <joy/cat.h>
 #include <joy/char.h>
 #include <joy/compare.h>
 #include <joy/execute.h>
