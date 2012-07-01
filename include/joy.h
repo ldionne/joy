@@ -15,7 +15,6 @@
 #include <joy/compare.h>
 #include <joy/execute.h>
 #include <joy/macro.h>
-#include <joy/mangle.h>
 #include <joy/map.h>
 #include <joy/object.h>
 #include <joy/pair.h>
