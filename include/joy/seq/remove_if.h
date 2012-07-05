@@ -7,6 +7,8 @@
 #ifndef JOY_SEQ_REMOVE_IF_H
 #define JOY_SEQ_REMOVE_IF_H
 
+#include <joy/pair.h>
+
 #include <chaos/preprocessor/recursion/expr.h>
 #include <chaos/preprocessor/seq/filter.h>
 #include <chaos/preprocessor/logical/not.h>
