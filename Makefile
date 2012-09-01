@@ -1,13 +1,17 @@
-EDITABLE_FILES = `find include/ -name *.[h,c]`
-COG = tools/cog/scripts/cog.py
-MACROIZE = tools/macroize/macroize.py
 
-.PHONY: before_edit after_edit
+# Simple Makefile forwarding to the build directory.
 
-before_edit:
-	python3 ${COG} -x -r ${EDITABLE_FILES}
-	python3 ${MACROIZE} ${EDITABLE_FILES} -u
+.PHONY: all gen-cmake
 
-after_edit:
-	python3 ${MACROIZE} ${EDITABLE_FILES}
-	python3 ${COG} -r ${EDITABLE_FILES}
+# Suppress the output of the forwarding of commands.
+${VERBOSE}.SILENT:
+
+all:
+	make -C build $@
+
+%:
+	make -C build $@
+
+gen-cmake:
+	rm -rf build; mkdir build
+	cd build; cmake ..; cd ..
