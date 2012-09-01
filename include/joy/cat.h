@@ -21,10 +21,14 @@ def generate_cat(n):
     cog.outl("#define JOY_CAT_NOEXP{}({}) {}".format(n, args(n), noexp_body(n)))
     cog.outl("#define JOY_CAT{0}({1}) JOY_CAT_NOEXP{0}({1})".format(n, args(n)))
 
-for i in range(3, MAX):
+for i in range(1, MAX):
     generate_cat(i)
 
 ]]] */
+#define JOY_CAT_NOEXP1(arg0) arg0
+#define JOY_CAT1(arg0) JOY_CAT_NOEXP1(arg0)
+#define JOY_CAT_NOEXP2(arg0, arg1) arg0 ## arg1
+#define JOY_CAT2(arg0, arg1) JOY_CAT_NOEXP2(arg0, arg1)
 #define JOY_CAT_NOEXP3(arg0, arg1, arg2) arg0 ## arg1 ## arg2
 #define JOY_CAT3(arg0, arg1, arg2) JOY_CAT_NOEXP3(arg0, arg1, arg2)
 #define JOY_CAT_NOEXP4(arg0, arg1, arg2, arg3) arg0 ## arg1 ## arg2 ## arg3
