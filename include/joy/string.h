@@ -11,5 +11,6 @@
 #include <joy/string/eq.h>
 #include <joy/string/gt.h>
 #include <joy/string/lt.h>
+#include <joy/string/to_tuple.h>
 
 #endif /* !JOY_STRING_H */
