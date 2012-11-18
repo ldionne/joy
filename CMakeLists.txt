@@ -2,6 +2,8 @@
 project(joy)
 cmake_minimum_required(VERSION 2.6)
 
+include_directories(include ext/chaos)
+
 file(
     GLOB_RECURSE
     editable_files
@@ -31,3 +33,7 @@ add_custom_target(
     COMMAND ${cog} ${cog_flags} -r ${editable_files} > /dev/null
     WORKING_DIRECTORY ${joy_SOURCE_DIR}
 )
+
+file(GLOB_RECURSE test_files test/*.c)
+set_source_files_properties(${test_files} PROPERTIES COMPILE_FLAGS "-E -P")
+add_executable(preprocess ${test_files})
